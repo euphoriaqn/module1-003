@@ -2,7 +2,7 @@
  * Created by Илья on 09.07.2017.
  */
 import java.util.Scanner;
-public class PracticeMassive {
+public class MassiveEx1_2 {
     public static void main(String[] args){
 
         Scanner scan = new Scanner(System.in);
