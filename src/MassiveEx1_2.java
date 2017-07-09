@@ -9,6 +9,8 @@ public class PracticeMassive {
         System.out.println("Enter the size of massive ");
         int masSize = scan.nextInt();
         int[] massive = new int[masSize];
+        //Инициализация двумерного массива для второго задания. В него будет записываться елемент и количество его повторений
+        int[][] countAndElement = new int[masSize][2];
         // Считывание елементов массива
         for(int j = 0; j<masSize; j++) {
 
@@ -48,6 +50,35 @@ public class PracticeMassive {
              ) {
             System.out.print(i + " ");
         }
+        System.out.println();
+        // Заполнение двумерного массива [число][количество повторений]
+        for(int i = 0; i < massive.length; i++)
+        {
+            int count = 0;
+            for(int j = 0; j < massive.length; j++)
+            {
+               if (massive[i] == massive[j])
+                   count++;
+               countAndElement[i] [0] = massive[i];
+               countAndElement[i] [1] = count;
+            }
 
+        }
+        //Инициализация вспомогательных переменных для задания №2
+        int nominalMax = 0, numberMax = 0, nominalMin = massive[masSize-1], numberMin = 0;
+        //Поиск пары  [максимальное число][повторения]  и  пары [минимальное число]
+        for (int i = 0; i < masSize; i++) {
+            if (countAndElement[i][1] > nominalMax)  {
+                nominalMax = countAndElement[i][1];
+                numberMax = countAndElement [i][0];
+            }
+            if (countAndElement[i][1] < nominalMin){
+                nominalMin = countAndElement [i][1];
+                numberMin = countAndElement [i][0];
+            }
+
+        }
+        System.out.println("Максимальным числом в массиве является число " + numberMax + ", которое повторяется " + nominalMax + " раз/раза");
+        System.out.println("Минимальным числом в массиве является число " + numberMin+ ", которое повторяется " + nominalMin + " раз/раза");
     }
 }
